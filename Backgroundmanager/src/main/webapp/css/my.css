@@ -1,0 +1,81 @@
+* {
+	margin: 0;
+	padding: 0;
+
+}
+
+#myCarousel{
+	z-index: 1
+}
+#aaa{
+	position:absolute;
+	z-index: 999;
+	background-color: white;
+	
+}
+.carousel-indicators{
+	z-index: 9999
+}
+.navbar-default {
+	color:#fff !important;
+	font-weight:normal;
+	font-size: 14px;
+	font-family: -apple-system, SF UI Text, Arial, PingFang SC,
+		Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+	color: #313131;
+}
+.navbar-collapse{
+	margin-top: 15px;
+	margin-left: 10%;
+}
+
+
+#imga{
+	width:1200px;
+	height:250px;
+}
+#biaoti{
+	z-index: 9999;
+	font-size: 20px;
+	font-style: none;
+	font-weight: normal;
+	color: #2ae0c8 
+}
+.carousel-inner {
+
+    
+    width: 50% !important;
+    margin:10px auto;
+}
+#bbb{
+position: relative;
+
+
+}
+#bbbb{
+position: relative;
+left:27%;
+display: block;
+}
+
+#bbb:hover {
+	cursor:pointer;
+	background: #6fa3ef;
+}
+.article{
+	padding:50px 10px;
+	width: 670px;
+	overflow-x:auto;
+	 position: relative;
+	  margin:58px auto;
+	  background-color: #fff;
+	
+	
+}
+.article a,span{
+	 color:gray;
+	font-size:12px;
+	 text-decoration:none
+
+}
+ 

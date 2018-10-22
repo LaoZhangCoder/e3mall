@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+<mvc:resources location="/js/" mapping="/js/**" />
+<mvc:resources location="/css/" mapping="/css/**" />
+<mvc:resources location="/jq/" mapping="/jq/**" />
+<mvc:resources location="/imgs/" mapping="/imgs/**" />
+<mvc:resources location="/kindeditor-4.1.10/" mapping="/kindeditor-4.1.10/**" />
+
+
+
+	<context:component-scan base-package="AriticleController" />
+	<context:component-scan base-package="BlogService" />
+	<context:component-scan base-package="LoginController" />
+	<!-- 加载配置文件 -->
+	
+	<mvc:annotation-driven />
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<bean id="multipartResolver"
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<!-- 设置文件上传大小 -->
+	<property name="maxUploadSize" value="5000000" />
+</bean>
+	
+<bean class="LoginExection.LoginHandleException" id="LoginExection"></bean>
+<!-- 配置拦截器 -->
+<mvc:interceptors>
+	<mvc:interceptor>
+		<!-- 所有的请求都进入拦截器 -->
+		<mvc:mapping path="/**" />
+		<mvc:exclude-mapping path="/homedata" />
+		  <mvc:exclude-mapping path="/homedatacategory" />
+		    <mvc:exclude-mapping path="/getcount" />
+		     <mvc:exclude-mapping path="/newarticle" />
+		        <mvc:exclude-mapping path="/Category/*"/>
+		 <mvc:exclude-mapping path="/admin" />
+		  <mvc:exclude-mapping path="/tologin" />
+		   <mvc:exclude-mapping path="/tologin" />
+		  <mvc:exclude-mapping path="/imgs/**" />
+		  
+		 
+		<!-- 配置具体的拦截器 -->
+		<bean class="LoginInterceptor.LoginHandlerInterceptor" />
+		
+	</mvc:interceptor>
+</mvc:interceptors>
+
+
+	
+</beans>
